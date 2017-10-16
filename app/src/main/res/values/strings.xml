@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">INFS3634Quiz</string>
+    <string name="question_api">The current Android API version is 25. </string>
+    <string name="question_webapps">Web apps have less functionality than native apps. </string>
+    <string name="question_hardcode">Text should be hardcoded to their UI component. </string>
+    <string name="question_activity">An Android application can have several activities. </string>
+    <string name="question_store">The Google Play Store was originally called the Android Market. </string>
+    <string name="question_privilege">The Android system implements the system of most privilege. </string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="correct_toast">Correct</string>
+    <string name="incorrect_toast">Incorrect</string>
+    <string name="next_button">Next</string>
+    <string name="previous_button">Previous</string>
+</resources>
