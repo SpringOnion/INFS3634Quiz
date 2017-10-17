@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //placeholder for proper login database
                 if (username.equals("z1234567") && password.equals("student1")) {
-                    Intent intent = new Intent(MainActivity.this, QuizActivity.class);
+                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "Could not log you in, please try again", Toast.LENGTH_LONG).show();

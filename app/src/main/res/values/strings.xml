@@ -12,4 +12,13 @@
     <string name="incorrect_toast">Incorrect</string>
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
+    <string-array name="quiz_choices">
+        <item>Quiz 1 - Basics of Android</item>
+        <item>Quiz 2 - Layouts</item>
+        <item>Quiz 3 - APIs</item>
+    </string-array>
+    <string-array name="demo_choices">
+        <item>Demo 1 - Youtube API</item>
+        <item>Demo 2 - Google Maps API</item>
+    </string-array>
 </resources>
