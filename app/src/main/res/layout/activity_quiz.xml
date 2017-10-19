@@ -6,6 +6,7 @@
     android:background="@color/colorCyan"
     android:gravity="center"
     android:orientation="vertical"
+    android:weightSum="1"
     tools:context="com.example.chenz.infs3634quiz.QuizActivity">
 
     <TextView
@@ -17,22 +18,33 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:orientation="horizontal">
+        android:layout_margin="30dp"
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/true_button"
-            android:layout_width="wrap_content"
+            android:id="@+id/button_A"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/true_button" />
+            android:layout_margin="10dp" />
 
         <Button
-            android:id="@+id/false_button"
-            android:layout_width="wrap_content"
+            android:id="@+id/button_B"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/false_button" />
+            android:layout_margin="10dp" />
+
+        <Button
+            android:id="@+id/button_C"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+
+        <Button
+            android:id="@+id/button_D"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
+
     </LinearLayout>
 
 </LinearLayout>

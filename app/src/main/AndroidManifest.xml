@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.chenz.infs3634quiz">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,8 +23,10 @@
         <activity android:name=".DashboardActivity" />
         <activity
             android:name=".QuizResultActivity"
-            android:parentActivityName=".DashboardActivity"></activity>
-        <activity android:name=".DemoActivity"></activity>
+            android:parentActivityName=".DashboardActivity" />
+        <activity android:name=".DemoActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".TeacherDashboardActivity"></activity>
     </application>
 
 </manifest>
