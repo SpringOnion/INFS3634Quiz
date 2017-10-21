@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, DashboardActivity.class);
                     } else if (userType.equals("teacher")) {
                         //change to teacher page
-                        intent = new Intent(MainActivity.this, DashboardActivity.class);
+                        intent = new Intent(MainActivity.this, TeacherDashboardActivity.class);
                     } else {
                         Toast.makeText(MainActivity.this, "There was an error retrieving your details. Please try registering.", Toast.LENGTH_SHORT).show();
                     }

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="32dp"
-        android:text="INFS3634 Quiz"
+        android:text="QuizDroid"
         android:textColor="@color/colorWhite"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"

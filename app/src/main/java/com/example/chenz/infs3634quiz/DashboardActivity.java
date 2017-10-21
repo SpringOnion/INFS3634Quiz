@@ -24,12 +24,14 @@ public class DashboardActivity extends AppCompatActivity {
     Button mDemoButton;
     int mPositionCheck;
     ArrayList<String> mQuizList;
+    String mUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        mUsername = getIntent().getExtras().getString("Username");
         mQuizSpinner = (Spinner) findViewById(R.id.spinner_quiz);
         mQuizList = getLength();
         ArrayAdapter<String> mQuizAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, mQuizList);
@@ -71,6 +73,7 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                     Intent intent = new Intent(DashboardActivity.this, QuizActivity.class);
                     intent.putExtra("Quiz", quizSelection);
+                intent.putExtra("Username", mUsername);
                     startActivity(intent);
             }
         });

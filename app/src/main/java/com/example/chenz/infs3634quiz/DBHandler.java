@@ -10,6 +10,8 @@ public class DBHandler extends SQLiteOpenHelper {
     private static String SQL_CREATE_QUIZ = "CREATE TABLE QUIZ ( _id integer primary key autoincrement, question text not null, " +
             "answerA text, answerB text, answerC text, answerD text, correctanswer text, quiz text not null); ";
     private static String SQL_CREATE_LOGIN = "CREATE TABLE LOGIN ( _id integer primary key autoincrement, username text, password text, userType text); ";
+    private static String SQL_CREATE_RESULTS = "CREATE TABLE RESULTS ( _id integer primary key autoincrement, question text, correctanswer text, result text, " +
+            "student text, quiz text); ";
     private static DBHandler instance;
     private DBHandler dbHandler;
     private SQLiteDatabase db;
@@ -29,6 +31,7 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_LOGIN);
         db.execSQL(SQL_CREATE_QUIZ);
+        db.execSQL(SQL_CREATE_RESULTS);
         dbHandler = this;
         this.db = db;
         createBaseLogins();

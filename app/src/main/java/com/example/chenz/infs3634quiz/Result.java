@@ -9,12 +9,12 @@ public class Result {
     String correctAnswer;
     String result;
     String student;
-    int quiz;
+    String quiz;
 
     public Result() {
     }
 
-    public Result(String question, String correctAnswer, String result, String student, int quiz) {
+    public Result(String question, String correctAnswer, String result, String student, String quiz) {
         this.question = question;
         this.correctAnswer = correctAnswer;
         this.result = result;
@@ -54,11 +54,11 @@ public class Result {
         this.student = student;
     }
 
-    public int getQuiz() {
+    public String getQuiz() {
         return quiz;
     }
 
-    public void setQuiz(int quiz) {
+    public void setQuiz(String quiz) {
         this.quiz = quiz;
     }
 }

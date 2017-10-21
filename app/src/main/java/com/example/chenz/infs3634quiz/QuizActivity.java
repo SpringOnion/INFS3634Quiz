@@ -1,5 +1,6 @@
 package com.example.chenz.infs3634quiz;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,6 +14,8 @@ public class QuizActivity extends AppCompatActivity {
 
     int mCorrectAnswers = 0;
     int mAnsweredQuestions = 0;
+    String mUsername;
+    Result[] mResultsBank;
     private Button mButtonA;
     private Button mButtonB;
     private Button mButtonC;
@@ -33,6 +36,13 @@ public class QuizActivity extends AppCompatActivity {
         String quiz = getIntent().getExtras().getString("Quiz");
         mQuestionTextView = (TextView) findViewById(R.id.question_text_id);
         int length = getLength(quiz);
+        mUsername = getIntent().getExtras().getString("Username");
+        mResultsBank = new Result[length];
+        for (int i = 0; i < length; i++) {
+            mResultsBank[i] = new Result();
+            mResultsBank[i].setQuiz(quiz);
+            mResultsBank[i].setStudent(mUsername);
+        }
         mQuestionBank = new Question[length];
         for (int i = 0; i < length; i++) {
             mQuestionBank[i] = new Question();
@@ -47,6 +57,9 @@ public class QuizActivity extends AppCompatActivity {
                 if (mQuestionBank[mCurrentIndex].getmCorrectAnswer().equals("A")) {
                     mCorrectAnswers++;
                 }
+                mResultsBank[mCurrentIndex].setCorrectAnswer(mQuestionBank[mCurrentIndex].getmCorrectAnswer());
+                mResultsBank[mCurrentIndex].setQuestion(mQuestionBank[mCurrentIndex].getmQuestionText());
+                mResultsBank[mCurrentIndex].setResult("A");
                 mCurrentIndex++;
                 updateQuestion();
             }
@@ -58,6 +71,9 @@ public class QuizActivity extends AppCompatActivity {
                 if (mQuestionBank[mCurrentIndex].getmCorrectAnswer().equals("B")) {
                     mCorrectAnswers++;
                 }
+                mResultsBank[mCurrentIndex].setCorrectAnswer(mQuestionBank[mCurrentIndex].getmCorrectAnswer());
+                mResultsBank[mCurrentIndex].setQuestion(mQuestionBank[mCurrentIndex].getmQuestionText());
+                mResultsBank[mCurrentIndex].setResult("B");
                 mCurrentIndex++;
                 updateQuestion();
             }
@@ -69,6 +85,9 @@ public class QuizActivity extends AppCompatActivity {
                 if (mCorrectAnswer.equals("C")) {
                     mCorrectAnswers++;
                 }
+                mResultsBank[mCurrentIndex].setCorrectAnswer(mQuestionBank[mCurrentIndex].getmCorrectAnswer());
+                mResultsBank[mCurrentIndex].setQuestion(mQuestionBank[mCurrentIndex].getmQuestionText());
+                mResultsBank[mCurrentIndex].setResult("C");
                 mCurrentIndex++;
                 updateQuestion();
             }
@@ -80,6 +99,9 @@ public class QuizActivity extends AppCompatActivity {
                 if (mCorrectAnswer.equals("D")) {
                     mCorrectAnswers++;
                 }
+                mResultsBank[mCurrentIndex].setCorrectAnswer(mQuestionBank[mCurrentIndex].getmCorrectAnswer());
+                mResultsBank[mCurrentIndex].setQuestion(mQuestionBank[mCurrentIndex].getmQuestionText());
+                mResultsBank[mCurrentIndex].setResult("D");
                 mCurrentIndex++;
                 updateQuestion();
             }
@@ -93,6 +115,18 @@ public class QuizActivity extends AppCompatActivity {
         mCorrectAnswer = mQuestionBank[mCurrentIndex].getmCorrectAnswer();
 
     }
+
+    private void uploadResults(Result result) {
+        SQLiteDatabase db = DBHandler.getHandler(this).getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("question", result.getQuestion());
+        values.put("correctanswer", result.getCorrectAnswer());
+        values.put("result", result.getResult());
+        values.put("student", result.getStudent());
+        values.put("quiz", result.getQuiz());
+        db.insert("RESULTS", null, values);
+    }
+
     private void updateQuestion(){
         mAnsweredQuestions++;
         if (mAnsweredQuestions < mQuestionBank.length) {
@@ -104,6 +138,9 @@ public class QuizActivity extends AppCompatActivity {
             mButtonD.setText(mQuestionBank[mCurrentIndex].getmAnswerD());
             mCorrectAnswer = mQuestionBank[mCurrentIndex].getmCorrectAnswer();
         } else if (mAnsweredQuestions >= mQuestionBank.length) {
+            for (Result r : mResultsBank) {
+                uploadResults(r);
+            }
             Intent intent = new Intent(QuizActivity.this, QuizResultActivity.class);
             intent.putExtra("Result", mCorrectAnswers);
             intent.putExtra("Questions", mQuestionBank.length);

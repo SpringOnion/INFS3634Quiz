@@ -12,6 +12,7 @@
     <string name="incorrect_toast">Incorrect</string>
     <string name="next_button">Next</string>
     <string name="previous_button">Previous</string>
+    <string name="dashboard_title">Please select an option: </string>
     <string-array name="quiz_choices">
         <item>Quiz 1 - Basics of Android</item>
         <item>Quiz 2 - Layouts</item>

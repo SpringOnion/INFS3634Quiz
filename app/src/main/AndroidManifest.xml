@@ -26,7 +26,22 @@
             android:parentActivityName=".DashboardActivity" />
         <activity android:name=".DemoActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".TeacherDashboardActivity"></activity>
+        <activity android:name=".TeacherDashboardActivity" />
+        <activity
+            android:name="com.ipaulpro.afilechooser.FileChooserActivity"
+            android:enabled="true"
+            android:exported="true"
+            android:label="Choose File">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_CONTENT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.OPENABLE" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TeacherResultActivity"></activity>
     </application>
 
 </manifest>
