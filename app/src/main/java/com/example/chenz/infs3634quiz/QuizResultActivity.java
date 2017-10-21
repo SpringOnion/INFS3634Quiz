@@ -16,6 +16,7 @@ public class QuizResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //shows results based on data passed through
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_result);
         questions = getIntent().getExtras().getInt("Questions");

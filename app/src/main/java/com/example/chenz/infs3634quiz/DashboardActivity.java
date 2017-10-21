@@ -89,6 +89,7 @@ public class DashboardActivity extends AppCompatActivity {
     }
 
     private ArrayList<String> getLength() {
+        //reads the database to fill the spinner with quiz names
         SQLiteDatabase db = DBHandler.getHandler(DashboardActivity.this).getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT quiz FROM QUIZ", null);
         cursor.moveToFirst();

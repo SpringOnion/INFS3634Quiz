@@ -31,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //basic input confirmation
                 mUsername = mEditUsername.getText().toString();
                 mPassword = mEditPassword.getText().toString();
                 User user = new User();
@@ -47,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void insertUser(User user) {
+        //database inserts users
         SQLiteDatabase db = DBHandler.getHandler(this).getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("username", user.getUsername());

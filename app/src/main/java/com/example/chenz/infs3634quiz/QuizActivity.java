@@ -31,6 +31,7 @@ public class QuizActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //set up the arrays holding data, and the UI elements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         String quiz = getIntent().getExtras().getString("Quiz");
@@ -117,6 +118,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void uploadResults(Result result) {
+        //uploads results, called by updateQuestion
         SQLiteDatabase db = DBHandler.getHandler(this).getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("question", result.getQuestion());
@@ -128,6 +130,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void updateQuestion(){
+        //updates the text of the UI elements, and checks if quiz is completed
         mAnsweredQuestions++;
         if (mAnsweredQuestions < mQuestionBank.length) {
             String question = mQuestionBank[mCurrentIndex].getmQuestionText();
@@ -149,6 +152,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private int getLength(String quiz) {
+        //used to initialize arrays to correct length
         SQLiteDatabase db = DBHandler.getHandler(QuizActivity.this).getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT quiz FROM QUIZ WHERE quiz='" + quiz + "'; ", null);
         cursor.moveToFirst();
@@ -159,6 +163,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private Question[] getQuestions(String quiz) {
+        //used to get the questions for the quiz
         SQLiteDatabase db = DBHandler.getHandler(QuizActivity.this).getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM QUIZ WHERE quiz='" + quiz + "'; ", null);
         cursor.moveToFirst();

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 
 public class DBHandler extends SQLiteOpenHelper {
+    //Database handling class
     private static String SQL_CREATE_QUIZ = "CREATE TABLE QUIZ ( _id integer primary key autoincrement, question text not null, " +
             "answerA text, answerB text, answerC text, answerD text, correctanswer text, quiz text not null); ";
     private static String SQL_CREATE_LOGIN = "CREATE TABLE LOGIN ( _id integer primary key autoincrement, username text, password text, userType text); ";
@@ -21,6 +22,9 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
     public static synchronized DBHandler getHandler(Context context) {
+        //method to retrieve static instance of DBHandler from across application
+        //based on
+        //http://www.androiddesignpatterns.com/2012/05/correctly-managing-your-sqlite-database.html
         if (instance == null) {
             instance = new DBHandler(context);
         }
@@ -42,6 +46,8 @@ public class DBHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    //below hardcoded values are added for demonstration and testing purposes
 
     private void createBaseLogins() {
         ContentValues student = new ContentValues();

@@ -1,7 +1,7 @@
 package com.example.chenz.infs3634quiz;
 
-/**
- * Created by chenz on 16/08/2017.
+/*
+    Question class - holds the text, the 4 answers, the correct answer and the quiz it belongs to
  */
 
 public class Question {

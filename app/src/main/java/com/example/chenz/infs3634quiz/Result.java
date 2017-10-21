@@ -1,7 +1,7 @@
 package com.example.chenz.infs3634quiz;
 
-/**
- * Created by chenz on 19/10/2017.
+/*
+    Result class - contains question text, the quiz, the student, the correct answer, and the student's response.
  */
 
 public class Result {
